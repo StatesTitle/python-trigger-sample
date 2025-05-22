@@ -77,7 +77,7 @@ def _get_result(test_run):
     }
     result_resp = requests.get(result_url, headers=headers)
     if result_resp.status_code == 404:
-        print('Pulling result from %s returned 404. This is expected if the test run is still in progress.')
+        print(result_resp.json())
         print('Unable to find test run result at %s' % result_url)
         return
     if result_resp.ok:
